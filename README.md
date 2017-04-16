@@ -10,6 +10,10 @@ This app will show a notification when your device's battery is full while charg
 
 [Youtube link](https://www.youtube.com/watch?v=XxJNotB3O_Q&t=6s)
 
+# Inspired by
+
+https://github.com/carloshwa/android-charge-alert
+
 License
 --------
 
