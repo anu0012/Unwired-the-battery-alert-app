@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     IntentFilter ifilter;
     Intent batteryStatus;
     Button levelButton;
-    MediaPlayer mediaPlayer=null;
+    //MediaPlayer mediaPlayer=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 //                    mediaPlayer.release();
 //                    mediaPlayer = null;
 //                }
-                if(MainService.mediaPlayer !=null){
-                    MainService.mediaPlayer.release();
-                    MainService.mediaPlayer = null;
+                if(MainService.mediaPlayer !=null && MainService.mediaPlayer.isPlaying()){
+                    MainService.mediaPlayer.stop();
+                    //MainService.mediaPlayer = null;
                 }
             }
         });
@@ -101,6 +101,12 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        batteryLevel();
     }
 
     @Override
@@ -154,6 +160,13 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         float batteryPct = level / (float)scale;
 
         levelButton.setText("BATTERY LEVEL\n" + (int)(batteryPct*100) + "%");
+
+        if(!isConnected(context)){
+            if(MainService.mediaPlayer !=null){
+                MainService.mediaPlayer.release();
+                MainService.mediaPlayer = null;
+            }
+        }
 
 
 //            SharedPreferences preferences = context.getSharedPreferences(MainActivity.PREFERENCES_NAME, 0);

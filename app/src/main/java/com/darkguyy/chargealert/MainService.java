@@ -55,7 +55,8 @@ public class MainService extends Service {
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.ringtone);
+        mediaPlayer = new MediaPlayer();
+
         //vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
 
         mNotificationManager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
@@ -103,6 +104,10 @@ public class MainService extends Service {
 //                        vibrator.vibrate(3000);
 //                    }
 
+                    vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+
+                    mediaPlayer = new MediaPlayer();
+
                     SharedPreferences preferences = context.getSharedPreferences(MainActivity.PREFERENCES_NAME, 0);
                     if(((int)(batteryPct*100) == preferences.getInt(MainActivity.PREFERENCE_KEY_ALERT_LEVEL,0) || (int)(batteryPct*100) == 100) && MainActivity.isConnected(context)){
 
@@ -110,6 +115,7 @@ public class MainService extends Service {
                         if(mediaPlayer != null && !mediaPlayer.isPlaying())
                         {
                             Toast.makeText(context,"Battery reached the level " + (int)(batteryPct*100) + "% \nRemove from charging !!!",Toast.LENGTH_LONG).show();
+                            mediaPlayer = MediaPlayer.create(context, R.raw.ringtone);
                             mediaPlayer.start();
                             vibrator.vibrate(3000);
                         }
@@ -162,5 +168,7 @@ public class MainService extends Service {
             }
         }
     };
+
+
 
 }
