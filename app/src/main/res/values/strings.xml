@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Unwired</string>
+    <string name="full">Battery Full</string>
+    <string name="enabled">Enabled</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="sound">Sound</string>
+    <string name="feedback">Feedback</string>
+    <string name="email">darkguy16@outlook.com</string>
+    <string name="no_email">No e-mail client installed.</string>
+    <string name="howtouse">
+        1. In the center of the app, user can see the current battery level.\n\n
+        2. By clicking on the "enabled" toggle button, app starts running in the background.\n\n
+        3. User can set the charging limit at which he wants to see the alert using the spinner.\n\n
+        4. vibrate and sound buttons are used for sound and vibration during notification alert.\n\n
+        5. As soon as the battery is charged fully or at the desired limit, user\'s phone starts vibration and ring. The user will get a notification to remove the mobile from charging. User can stop the sound by clicking on the circular "battery level" button on the main screen.
+    </string>
+
+</resources>
