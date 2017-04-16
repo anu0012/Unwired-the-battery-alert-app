@@ -1,7 +1,18 @@
-# android-charge-alert
-Receive a notification alert when your battery is full from charging.
+# Introduction
 
-This app will show a notification when your device's battery is full while charging. Designed with the Moto X Active Display in mind, which does not have notification LEDs, you can now get an Active Display notification when charging is completee.
+This application was developed during my Ecosystem & Sustainable Development course.
+
+Receive a notification and sound alert when your battery is full from charging. This app also allows you to set a battery level at which you want to see the alert.
+
+This app will show a notification when your device's battery is full while charging.
+
+# Demo
+
+[Youtube link](https://www.youtube.com/watch?v=XxJNotB3O_Q&t=6s)
+
+# Inspired by
+
+https://github.com/carloshwa/android-charge-alert
 
 License
 --------
